@@ -18,6 +18,7 @@ body {
 .toDo {
   border: solid rgba(0, 0, 0, 0.6);
   margin: 1rem;
+  display: flex;
 }
 
 .input-container {
@@ -35,11 +36,6 @@ button {
   border-radius: 25%;
 }
 
-.button:hover {
-  background-color: red;
-  color: black;
-}
-
 .adding_items {
   margin-top: 1rem;
 }
@@ -54,4 +50,8 @@ input:checked + label {
 
 #inp {
   font-size: 16px;
+}
+
+label {
+  margin-right: 5px;
 }

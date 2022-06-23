@@ -52,9 +52,15 @@ items.forEach((toDo) => {
   console.log(toDo);
   document.getElementById("list").innerHTML += `
   <div class="toDo" >
-  <input class="checkboxes"  type="checkbox"  ><label for="inp">${toDo.product}</label>
+  <input  type="checkbox"  ><label for="inp">${toDo.product}</label><div id="delete"></div>
   </div>
   `;
+  document.querySelector(".toDo").addEventListener("mouseover", function (e) {
+    document.querySelector("#delete").innerHTML = ` <button type="button"  class="delete" id="${toDo.id}"  >delete</button>`;
+  });
+  document.querySelector(".toDo").addEventListener("mouseout", function (e) {
+    document.querySelector("#delete").innerHTML = ` `;
+  });
 });
 
 // Add Function
@@ -67,7 +73,7 @@ function addProduct() {
   };
   items.push(newProduct);
   document.getElementById("list").innerHTML += `
-  <div class="toDo" ><input class="checkboxes" type="checkbox" "><label for="inp">${newProduct.product}</label></div>
+  <div class="toDo" ><input type="checkbox" "><label for="inp">${newProduct.product}</label></div>
     `;
   console.log(items);
 }
