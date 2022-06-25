@@ -77,3 +77,34 @@ function addProduct() {
     `;
   console.log(items);
 }
+
+
+function editTask(id) {
+  const newTask = prompt("What wolud you like to change the task to?")
+  const task = toDo.find((newProduct) => toDo.id === id);
+  task.title = newTask;
+  localStorage.setItem("toDo", JSON.stringify(toDo));
+  forEach(toDo)
+}
+
+
+function sortName() {
+  toDo.sort((a, b) => {
+    if (a.title.toLowerCase() < b.title.toLowerCase()) {
+      return -1;
+    }
+    if (a.title.toLowerCase() > b.title.toLowerCase()) {
+      return 1;
+    }
+    return 0;
+  });
+  if (!asc) toDo.reverse();
+  asc = !asc;
+  forEach(toDo);
+}
+
+function deleteTask(id) {
+  toDo = toDo.filter((toDo) => toDo.id !==id);
+  localStorage.setItem("toDo", JSON.stringify(toDo));
+  forEach(toDo);
+}
